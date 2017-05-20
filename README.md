@@ -2,7 +2,7 @@
 
 Bookstores parser for online shops:
 
-- [Ozon](https://ozon.com)
+- [Ozon](https://ozon.ru)
 
 - [Amazon](https://amazon.com)
 
