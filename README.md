@@ -1,9 +1,9 @@
-# bookstores-parser
+# Bookstores parser
 
 Bookstores parser for online shops:
 
-- [Ozon](https://ozon.ru)
+- [Ozon](http://bit.ly/2q7HGa6)
 
-- [Amazon](https://amazon.com)
+- [Amazon](http://amzn.to/2rrg2bR)
 
-- [Ebay](https://www.ebay.com/rpp/books)
+- [Ebay](http://ebay.to/2pZRgjt)

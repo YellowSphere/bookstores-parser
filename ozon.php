@@ -1,6 +1,6 @@
-File Edit Options Buffers Tools PHP C Help                                                                                                                     
-File Edit Options Buffers Tools PHP C Help                                                                                                                     
-<?php
+                                                                                                              <?php
+
+setlocale(LC_ALL, 'russia');
 
 require_once('simple_html_dom.php'); /* Needed for file_get_html */
 
@@ -21,7 +21,7 @@ function parse_bestsellers($html) {
       $title = NULL;
       foreach ($subdivs as $subdiv) {
         if ($subdiv->class == "eOneTile_ItemName") {
-          $title = $subdiv->innertext;
+          $title = $subdiv->plaintext;
         }
       }
 
@@ -49,9 +49,8 @@ function parse_bestsellers($html) {
   }
 }
 
-/* $html = file_get_html("https://www.ozon.ru/context/best_books/"); */
+$html = file_get_html("https://www.ozon.ru/context/best_books/");
 
-$html = file_get_html("test.html");
 
 parse_bestsellers($html);
-
+?>
