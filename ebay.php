@@ -21,6 +21,9 @@ function get_rating($li) {
 
 
 function parse_bestsellers($html) {
+
+  $fp = fopen('csv/ebay.csv', 'w+');
+
   foreach ($html->find('li') as $li) {
     if ($li->class == "sresult lvresult clearfix li shic") {
       $subdivs = $li->find('a');
@@ -48,6 +51,11 @@ function parse_bestsellers($html) {
 
       $rating = get_rating($li);
 
+      fputcsv($fp, array($title));
+      fputcsv($fp, array($price));
+      fputcsv($fp, array($rating));
+      fputcsv($fp, array($new_url));
+
       print("Book:\n");
       print("  Title: " . $title . "\n");
       print("  Price: " . $price . "\n");
@@ -56,6 +64,7 @@ function parse_bestsellers($html) {
 
     }
   }
+  fclose($fp);
 }
 
 $html = file_get_html("http://ebay.to/2pZRgjt"); 

@@ -58,6 +58,8 @@ function get_rating($div) {
 
 function parse_bestsellers($html) {
 
+  $fp = fopen('csv/amazon.csv', 'w+');
+
   foreach ($html->find('div') as $div) {
     if ($div->class == "a-section a-spacing-none p13n-asin") {
 
@@ -85,14 +87,21 @@ function parse_bestsellers($html) {
 
       $title = get_title($div);
       $rating = get_rating($div);
+      $new_url = "https://www.amazon.com/" . $url;
+
+      fputcsv($fp, array($title));
+      fputcsv($fp, array($price));
+      fputcsv($fp, array($rating));
+      fputcsv($fp, array($new_url));
 
       print("Book:\n");
       print("  Title: " . $title . "\n");
       print("  Price: " . $price . "\n");
       print("  Rating: " . $rating . "\n");
-      print("  URL: " . "https://www.amazon.com/" . $url . "\n\n");
+      print("  URL: " . $new_url . "\n\n");
     }
   }
+  fclose($fp);
 }
 
 $html = file_get_html("http://amzn.to/2rrg2bR"); 
