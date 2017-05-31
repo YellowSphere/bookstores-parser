@@ -88,11 +88,10 @@ function parse_bestsellers($html) {
       $title = get_title($div);
       $rating = get_rating($div);
       $new_url = "https://www.amazon.com/" . $url;
-
-      fputcsv($fp, array($title));
-      fputcsv($fp, array($price));
-      fputcsv($fp, array($rating));
-      fputcsv($fp, array($new_url));
+      
+      $data = array($title, $price, $rating, $new_url);
+      
+      fputcsv($fp, $data);
 
       print("Book:\n");
       print("  Title: " . $title . "\n");

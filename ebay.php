@@ -51,10 +51,9 @@ function parse_bestsellers($html) {
 
       $rating = get_rating($li);
 
-      fputcsv($fp, array($title));
-      fputcsv($fp, array($price));
-      fputcsv($fp, array($rating));
-      fputcsv($fp, array($new_url));
+      $data = array($title, $price, $rating, $new_url);
+      
+      fputcsv($fp, $data);
 
       print("Book:\n");
       print("  Title: " . $title . "\n");
